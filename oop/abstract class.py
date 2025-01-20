@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 '''
 
 abstract class: a class that cannot be instantianted by its own;
@@ -8,4 +10,31 @@ abstract class: a class that cannot be instantianted by its own;
                 2. requires children to use inherited abstract methods
 '''
 
-# 35;45
+class Vehicle(ABC):
+    
+    @abstractmethod
+    def go(self):
+        pass
+
+    @abstractmethod
+    def stop(self):
+        pass
+
+class Car(Vehicle):
+    
+    def go(self):
+        print('you drive the car')
+
+    def stop(self):
+        print('you stop the car')
+
+class Motorcycle(Vehicle):
+    def go(self):
+        print('you ride the motorcycle')
+
+    def stop(self):
+        print('you stop the motorcycle')
+
+motorcycle = Motorcycle()
+
+motorcycle.go()
